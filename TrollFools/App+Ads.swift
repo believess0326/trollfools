@@ -17,7 +17,7 @@ extension App {
                 teamID: "GXZ23M5TP2",
                 url: URL(string: "https://havoc.app/package/trollrecorder")!,
                 alternateIcon: .init(named: "tricon-default"),
-                isAdvertisement: false
+                isAdvertisement: true
             ),
             App(
                 bid: NSLocalizedString("Bringing back the most advanced system and security analysis tool.", comment: ""),
@@ -26,7 +26,7 @@ extension App {
                 teamID: "GXZ23M5TP2",
                 url: URL(string: "https://havoc.app/package/reveil")!,
                 alternateIcon: .init(named: "reveil-default"),
-                isAdvertisement: false
+                isAdvertisement: true
             ),
             App(
                 bid: NSLocalizedString("An awesome music visualizer.", comment: ""),
@@ -35,7 +35,7 @@ extension App {
                 teamID: "GXZ23M5TP2",
                 url: URL(string: "https://havoc.app/package/letterpress")!,
                 alternateIcon: .init(named: "letter-default"),
-                isAdvertisement: false
+                isAdvertisement: true
             ),
             App(
                 bid: NSLocalizedString("Full-Fledged Automation Framework for TrollStore.", comment: ""),
@@ -44,7 +44,7 @@ extension App {
                 teamID: "GXZ23M5TP2",
                 url: URL(string: "https://havoc.app/package/xxtouchelitets")!,
                 alternateIcon: .init(named: "elite-default"),
-                isAdvertisement: false
+                isAdvertisement: true
             ),
             App(
                 bid: NSLocalizedString("Fast, feature-rich VNC server for iOS: remote control made simple.", comment: ""),
@@ -53,7 +53,7 @@ extension App {
                 teamID: "GXZ23M5TP2",
                 url: URL(string: "https://havoc.app/package/trollvnc")!,
                 alternateIcon: .init(named: "vnc-default"),
-                isAdvertisement: false
+                isAdvertisement: true
             ),
         ].randomElement()!
     }()
