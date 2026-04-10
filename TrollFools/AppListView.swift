@@ -119,9 +119,6 @@ struct AppListView: View {
                 selectorOpenedURL = urlIdent
             }
             .onAppear {
-                if Double.random(in: 0 ..< 1) < 0.1 {
-                    isAdvertisementHidden = false
-                }
 
                 CheckUpdateManager.shared.checkUpdateIfNeeded { latestVersion, _ in
                     DispatchQueue.main.async {
