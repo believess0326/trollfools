@@ -28,6 +28,7 @@ struct EjectListView: View {
 
     @AppStorage var useWeakReference: Bool
     @AppStorage var preferMainExecutable: Bool
+    @AppStorage var useFrameworkEnumerationFallback: Bool
     @AppStorage var injectStrategy: InjectorV3.Strategy
 
     var shouldShowActions: Bool {
@@ -42,6 +43,7 @@ struct EjectListView: View {
         _ejectList = StateObject(wrappedValue: EjectListModel(app))
         _useWeakReference = AppStorage(wrappedValue: true, "UseWeakReference-\(app.bid)")
         _preferMainExecutable = AppStorage(wrappedValue: false, "PreferMainExecutable-\(app.bid)")
+        _useFrameworkEnumerationFallback = AppStorage(wrappedValue: true, "UseFrameworkEnumerationFallback-\(app.bid)")
         _injectStrategy = AppStorage(wrappedValue: .lexicographic, "InjectStrategy-\(app.bid)")
     }
 
@@ -115,7 +117,6 @@ struct EjectListView: View {
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled(true)
         } else {
-            // Fallback on earlier versions
             ejectListView
                 .onReceive(searchViewModel.$searchKeyword) {
                     ejectList.filter.searchKeyword = $0
@@ -332,7 +333,14 @@ struct EjectListView: View {
 
         do {
             let plugInsToRemove = offsets.map { ejectList.filteredPlugIns[$0] }
-            let plugInURLsToRemove = plugInsToRemove.map { $0.url }
+
+            let enabledURLsToRemove = plugInsToRemove
+                .filter { $0.isEnabled }
+                .map { $0.url }
+
+            let disabledURLsToRemove = plugInsToRemove
+                .filter { !$0.isEnabled }
+                .map { $0.url }
 
             let injector = try InjectorV3(ejectList.app.url)
             logFileURL = injector.latestLogFileURL
@@ -347,9 +355,16 @@ struct EjectListView: View {
 
             injector.useWeakReference = useWeakReference
             injector.preferMainExecutable = preferMainExecutable
+            injector.useFrameworkEnumerationFallback = useFrameworkEnumerationFallback
             injector.injectStrategy = injectStrategy
 
-            try injector.eject(plugInURLsToRemove, shouldDesist: true)
+            if !enabledURLsToRemove.isEmpty {
+                try injector.eject(enabledURLsToRemove, shouldDesist: true)
+            }
+
+            if !disabledURLsToRemove.isEmpty {
+                injector.desist(disabledURLsToRemove)
+            }
 
             ejectList.app.reload()
             ejectList.reload()
@@ -390,6 +405,7 @@ struct EjectListView: View {
 
             injector.useWeakReference = useWeakReference
             injector.preferMainExecutable = preferMainExecutable
+            injector.useFrameworkEnumerationFallback = useFrameworkEnumerationFallback
             injector.injectStrategy = injectStrategy
 
             if plugIn.isEnabled {
@@ -439,6 +455,7 @@ struct EjectListView: View {
 
             injector.useWeakReference = useWeakReference
             injector.preferMainExecutable = preferMainExecutable
+            injector.useFrameworkEnumerationFallback = useFrameworkEnumerationFallback
             injector.injectStrategy = injectStrategy
 
             let view = viewControllerHost.viewController?
@@ -512,6 +529,7 @@ struct EjectListView: View {
 
             injector.useWeakReference = useWeakReference
             injector.preferMainExecutable = preferMainExecutable
+            injector.useFrameworkEnumerationFallback = useFrameworkEnumerationFallback
             injector.injectStrategy = injectStrategy
 
             let view = viewControllerHost.viewController?

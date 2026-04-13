@@ -26,9 +26,6 @@
 "All Applications" = "All Applications";
 
 /* No comment provided by engineer. */
-"An awesome music visualizer." = "An awesome music visualizer.";
-
-/* No comment provided by engineer. */
 "And %d more unsupported user applications." = "And %d more unsupported user applications.";
 
 /* No comment provided by engineer. */
@@ -48,6 +45,9 @@
 
 /* No comment provided by engineer. */
 "Completed" = "Completed";
+
+/* No comment provided by engineer. */
+"Completed with compatibility mode. The plug-in may start working after opening some app features." = "Completed with compatibility mode. The plug-in may start working after opening some app features.";
 
 /* StripedTextTableViewController */
 "Confirm" = "Confirm";
@@ -72,6 +72,9 @@
 
 /* No comment provided by engineer. */
 "Done" = "Done";
+
+/* No comment provided by engineer. */
+"Enable Compatibility Fallback" = "Enable Compatibility Fallback";
 
 /* No comment provided by engineer. */
 "Eject" = "Eject";
@@ -113,6 +116,9 @@
 "Fast, feature-rich VNC server for iOS: remote control made simple." = "Fast, feature-rich VNC server for iOS: remote control made simple.";
 
 /* No comment provided by engineer. */
+"If needed, TrollFools will use a compatibility mode to improve success rate. Keeping this on is recommended." = "If needed, TrollFools will use a compatibility mode to improve success rate. Keeping this on is recommended.";
+
+/* No comment provided by engineer. */
 "Filza (URL Scheme) Not Installed" = "Filza (URL Scheme) Not Installed";
 
 /* No comment provided by engineer. */
@@ -123,6 +129,9 @@
 
 /* No comment provided by engineer. */
 "If you do not know what these options mean, please do not change them." = "If you do not know what these options mean, please do not change them.";
+
+/* No comment provided by engineer. */
+"Choose how TrollFools tries possible targets. If the plug-in does not work as expected, try another option." = "Choose how TrollFools tries possible targets. If the plug-in does not work as expected, try another option.";
 
 /* No comment provided by engineer. */
 "Includes Disabled PlugIns" = "Includes Disabled PlugIns";
@@ -150,9 +159,6 @@
 
 /* No comment provided by engineer. */
 "Lessica, huami1314, iosdump and other contributors" = "Lessica, huami1314, iosdump and other contributors";
-
-/* No comment provided by engineer. */
-"Letterpress" = "Letterpress";
 
 /* No comment provided by engineer. */
 "Lexicographic" = "Lexicographic";
@@ -213,6 +219,9 @@
 
 /* No comment provided by engineer. */
 "Prefer Main Executable" = "Prefer Main Executable";
+
+/* No comment provided by engineer. */
+"Try the app’s main file first. Turn this on when the plug-in does not seem active." = "Try the app’s main file first. Turn this on when the plug-in does not seem active.";
 
 /* No comment provided by engineer. */
 "Rebuild Icon Cache" = "Rebuild Icon Cache";
@@ -279,6 +288,9 @@
 
 /* No comment provided by engineer. */
 "Use Weak Reference" = "Use Weak Reference";
+
+/* No comment provided by engineer. */
+"Controls whether the app crashes when the plug-in cannot be found. Keeping this on can reduce unexpected crashes in some scenarios, but the plug-in will not work in those cases." = "Controls whether the app crashes when the plug-in cannot be found. Keeping this on can reduce unexpected crashes in some scenarios, but the plug-in will not work in those cases.";
 
 /* No comment provided by engineer. */
 "User" = "User";
